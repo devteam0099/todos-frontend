@@ -6,6 +6,7 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
+  const [mail,setMail] = useState("")
 
   async function signupHandler(e) {
     e.preventDefault();
@@ -17,6 +18,7 @@ const Signup = () => {
         formData.append("name", name);
         formData.append("username", username);
         formData.append("password", password);
+        formData.append('mail',mail)
         formData.append("profilePicture", profilePicture);
         const resp = await axios.post(
           "http://localhost:3000/api/signup/register-user",
@@ -42,7 +44,7 @@ const Signup = () => {
         encType="multipart/form-data"
         method="POST"
       >
-        <div className="flex flex-col border-orange-500 border-2 h-[500px] w-[450px] mx-auto rounded justify-between mt-[5%]">
+        <div className="flex flex-col border-orange-500 border-2 h-[550px] w-[450px] mx-auto rounded justify-between mt-[5%]">
           <h1 className="text-center mt-[0%] font-bold text-4xl bg-orange-500 p-4">
             Signup Form
           </h1>
@@ -59,10 +61,22 @@ const Signup = () => {
             />
           </div>
           <div className="text-center">
+            <h1 className="font-bold text-xl mb-2 ">Enter Email</h1>
+            <input
+              className="border-2 border-orange-500 rounded w-[300px] h-[40px] text-center text-black "
+              type="text"
+              value={mail}
+              onChange={(e) => {
+                setMail(e.target.value);
+              }}
+            />
+          </div>
+         
+          <div className="text-center">
             <h1 className="font-bold text-xl mb-2 ">Enter username</h1>
             <input
               className="border-2 border-orange-500 rounded w-[300px] h-[40px] text-center text-black"
-              type="text"
+              type="email"
               maxLength="20"
               value={username}
               onChange={(e) => {

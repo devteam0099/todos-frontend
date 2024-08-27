@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { putLoginDetaild } from "../../hooks/todoSlice";
+import { putLoginDetaild } from "../hooks/todoSlice";
 import axios from "axios";
-//localStorage.clear()
+
 const Login = () => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
