@@ -7,15 +7,12 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.loginReducer);
-  console.log(state);
-
+  
   async function loginHandler(e) {
     e.preventDefault();
     alert("submitted login details");
     //take authantication headers on localstorage if found
     const header = localStorage.getItem("auth");
-    console.log(header);
     try {
       const resp = await axios.post(
         "http://localhost:3000/api/login/auth-user",

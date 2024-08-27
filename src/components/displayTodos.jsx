@@ -1,10 +1,9 @@
 import { useState,useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashCan } from "@fortawesome/free-regular-svg-icons";
-//import { editTodoMember,deleteTodo,completedTodos} from "../pages/viewTodos.jsx";
 
 const DisplayTodos = (props)=>{
-    
+    console.log(props.data)
     return (
         <>
         <div className="min-h-[90vh]">
